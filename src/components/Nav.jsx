@@ -1,10 +1,11 @@
+import s from "./Nav.module.css"
 const Nav = ()=>{
     return(
-        <div className="nav">
-        <div><a href="#s">Messages</a></div>
-        <div><a href="#s">Profiles</a></div>
-        <div><a href="#s">Contacts</a></div>
-        <div><a href="#s">Settings</a></div>
+        <div className={s.nav}>
+        <div className={s.item}><a>Messages</a></div>
+        <div className={s.item}><a>Profiles</a></div>
+        <div className={s.item}><a>Contacts</a></div>
+        <div className={s.item}><a>Settings</a></div>
       </div>
     )
 };

@@ -1,3 +1,4 @@
+import MyPosts from "./MyPosts/MyPosts"
 import s from "./Profiles.module.css"
 const Profiles = () => {
     return (
@@ -7,12 +8,7 @@ const Profiles = () => {
                 <img src="https://ustaliy.ru/wp-content/uploads/2019/07/20.jpg" />
                 <span>Discription</span>
             </div>
-            <div className={s.item}>My Posts
-                <div>New Posts</div>
-                <div>Post1</div>
-                <div>Post2</div>
-                <div>Post3</div>
-            </div>
+            <MyPosts/>
         </div>
     )
 };

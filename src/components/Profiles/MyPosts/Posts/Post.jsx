@@ -1,10 +1,10 @@
-import s from "./Post.module.css"
-const Post = () => {
+import r from "./Post.module.css"
+const Post = (props) => {
     return (
-        <div className={s.item}>
-            <img src="https://i10.fotocdn.net/s118/6376d3b5b21c34c8/user_l/2690262591.jpg"/>
-            Post1
-            <span>Like</span>
+        <div className={r.item}>
+             <img src="https://yt3.ggpht.com/a/AATXAJy_xwGi6AHAFF69LNppHXsywFQdB3VpnLE5Umo=s900-c-k-c0x00ffffff-no-rj"/>
+             {props.textmesage}
+             <span>Like</span>
         </div>
     )  
     };

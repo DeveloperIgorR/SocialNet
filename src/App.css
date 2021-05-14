@@ -7,3 +7,7 @@
   "n c";
   grid-gap: 10px;
 }
+.wrapper-components{
+  grid-area: c;
+  background-color: darkgoldenrod;
+}

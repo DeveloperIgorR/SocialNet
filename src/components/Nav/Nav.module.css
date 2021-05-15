@@ -2,11 +2,17 @@
     grid-area: n;
     background-color: cornflowerblue;
     height:auto;
+    padding: 20px;
     }
-.item{
+
+.item a{
       text-align: center;
       margin-top: 30px;
-      color:rgb(255, 255, 250);
+      color:rgb(215, 214, 235);
       font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: x-large;
+      text-decoration: none;
   }
+.item a.active{
+    color: goldenrod;
+}  

@@ -1,44 +1,36 @@
 import { NavLink } from "react-router-dom"
 import s from "./Messages.module.css"
+const MessagesItem = (props) => {
+    return (
+        <div className={s.user}>
+            <NavLink to={"/Messages/" + props.id}>{props.name}</NavLink>
+        </div>
+    )
+}
+const Warnings = (props) => {
+    return (
+        <div className={s.message}>
+            {props.dialog}
+        </div>
+    )
+}
 const Messages = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.users}>
-                <div className={s.user + ' ' + s.active}>
-                    <NavLink to="/Messages/1">Yoda</NavLink>
-                </div>
-                <div className={s.user}>
-                    <NavLink to="/Messages/2">Obivankenobi</NavLink>
-                </div>
-                <div className={s.user}>
-                    <NavLink to="/Messages/3">Vindu</NavLink>
-                </div>
-                <div className={s.user}>
-                    <NavLink to="/Messages/4">Kvaygon</NavLink>
-                </div>
-                <div className={s.user}>
-                    <NavLink to="/Messages/5">EnikenSkywalker</NavLink>
-                </div>
-                <div className={s.user}>
-                    <NavLink to="/Messages/6">Padme</NavLink>
-                </div>
-                <div className={s.user}>
-                    <NavLink to="/Messages/7">LukSkywalker</NavLink>
-                </div>
-
+                <MessagesItem name="Yoda" id="1" />
+                <MessagesItem name="Obivankenobi" id="2" />
+                <MessagesItem name="Vindu" id="3" />
+                <MessagesItem name="Kvaygon" id="4" />
+                <MessagesItem name="EnikenSkywalker" id="5" />
+                <MessagesItem name="Padme" id="6" />
+                <MessagesItem name="LukSkywalker" id="7" />
             </div>
             <div className={s.messages}>
-                <div className={s.message}>
-                    feel the power!
-            </div>
-                <div className={s.message}>
-                    do you love Star Wars?
-            </div>
-                <div className={s.message}>
-                    may the power be with you!
-                </div>
-
-            </div>
+                <Warnings dialog="feel the power!"/>
+                <Warnings dialog="do you love Star Wars?"/>
+                <Warnings dialog="may the power be with you!"/>
+            </div>                             
         </div>
     )
 }

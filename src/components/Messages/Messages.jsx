@@ -1,29 +1,30 @@
+import { NavLink } from "react-router-dom"
 import s from "./Messages.module.css"
-const Messages = () => {
+const Messages = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.users}>
                 <div className={s.user + ' ' + s.active}>
-                    Yoda
+                    <NavLink to="/Messages/1">Yoda</NavLink>
                 </div>
                 <div className={s.user}>
-                    Obivankenobi
-            </div>
+                    <NavLink to="/Messages/2">Obivankenobi</NavLink>
+                </div>
                 <div className={s.user}>
-                    Vindu
-            </div>
+                    <NavLink to="/Messages/3">Vindu</NavLink>
+                </div>
                 <div className={s.user}>
-                    Kvaygon
-            </div>
+                    <NavLink to="/Messages/4">Kvaygon</NavLink>
+                </div>
                 <div className={s.user}>
-                    EnikenSkywalker
-            </div>
+                    <NavLink to="/Messages/5">EnikenSkywalker</NavLink>
+                </div>
                 <div className={s.user}>
-                    Padme
-            </div>
+                    <NavLink to="/Messages/6">Padme</NavLink>
+                </div>
                 <div className={s.user}>
-                    LukSkywalker
-            </div>
+                    <NavLink to="/Messages/7">LukSkywalker</NavLink>
+                </div>
 
             </div>
             <div className={s.messages}>

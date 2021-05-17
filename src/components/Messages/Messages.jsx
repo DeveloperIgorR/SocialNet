@@ -14,6 +14,20 @@ const Warnings = (props) => {
         </div>
     )
 }
+// let MessagesArray= [
+//     {id:1, message:"Hey, how are you?"},
+//     {id:2, message:"Do you like Star Wars?"},
+//     {id:3, message:"May the power be with you!"},
+//     ]
+// let NamesArray= [
+//     {id:1, name="Yoda"},
+//     {id:1, name="Obivankenobi"},
+//     {id:1, name="Vindu"},
+//     {id:1, name="Kvaygon"},
+//     {id:1, name="EnikenSkywalker"},
+//     {id:1, name="Padme"},
+//     {id:1, name="LukSkywalker"},
+// ]
 const Messages = (props) => {
     return (
         <div className={s.dialogs}>

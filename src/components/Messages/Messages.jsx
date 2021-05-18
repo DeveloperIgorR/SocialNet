@@ -1,19 +1,6 @@
-import { NavLink } from "react-router-dom"
 import s from "./Messages.module.css"
-const MessagesItem = (props) => {
-    return (
-        <div className={s.user}>
-            <NavLink to={"/Messages/" + props.id}>{props.name}</NavLink>
-        </div>
-    )
-}
-const Warnings = (props) => {
-    return (
-        <div className={s.message}>
-            {props.dialog}
-        </div>
-    )
-}
+import MessagesItem from "./MessagesItem/MessagesItem"
+import Warnings from "./Warnings/Warnings"
 let MessagesArray= [
     {id:1, message:"Hey, how are you?"},
     {id:2, message:"Do you like Star Wars?"},

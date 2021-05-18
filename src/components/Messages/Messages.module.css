@@ -2,16 +2,3 @@
     display: grid;
     grid-template-columns: 3fr 9fr;
 }
-.users{
-    padding: 15px;
-    text-decoration: none;
-}
-.users.user.active{
-    color: #eff5f2;
-}
-.messages{
-    padding: 15px;
-}
-.messages.message{
-
-}

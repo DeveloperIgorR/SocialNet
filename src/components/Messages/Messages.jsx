@@ -14,36 +14,34 @@ const Warnings = (props) => {
         </div>
     )
 }
-// let MessagesArray= [
-//     {id:1, message:"Hey, how are you?"},
-//     {id:2, message:"Do you like Star Wars?"},
-//     {id:3, message:"May the power be with you!"},
-//     ]
-// let NamesArray= [
-//     {id:1, name="Yoda"},
-//     {id:1, name="Obivankenobi"},
-//     {id:1, name="Vindu"},
-//     {id:1, name="Kvaygon"},
-//     {id:1, name="EnikenSkywalker"},
-//     {id:1, name="Padme"},
-//     {id:1, name="LukSkywalker"},
-// ]
+let MessagesArray= [
+    {id:1, message:"Hey, how are you?"},
+    {id:2, message:"Do you like Star Wars?"},
+    {id:3, message:"May the power be with you!"},
+    {id:4, message:"May the power be with you!"},
+    {id:5, message:"May the power be with you!"},
+    {id:6, message:"May the power be with you!"},
+    {id:7, message:"May the power be with you!"},
+    ]
+let NamesArray= [
+    {id:1, name:"Yoda"},
+    {id:2, name:"Obivankenobi"},
+    {id:3, name:"Vindu"},
+    {id:4, name:"Kvaygon"},
+    {id:5, name:"EnikenSkywalker"},
+    {id:6, name:"Padme"},
+    {id:7, name:"LukSkywalker"},
+]
+let NamesElements = NamesArray.map(n =><MessagesItem name={n.name} id={n.id} />)
+let MessageElements = MessagesArray.map(m =><Warnings dialog={m.message}/>)
 const Messages = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.users}>
-                <MessagesItem name="Yoda" id="1" />
-                <MessagesItem name="Obivankenobi" id="2" />
-                <MessagesItem name="Vindu" id="3" />
-                <MessagesItem name="Kvaygon" id="4" />
-                <MessagesItem name="EnikenSkywalker" id="5" />
-                <MessagesItem name="Padme" id="6" />
-                <MessagesItem name="LukSkywalker" id="7" />
+                {NamesElements}
             </div>
             <div className={s.messages}>
-                <Warnings dialog="feel the power!"/>
-                <Warnings dialog="do you love Star Wars?"/>
-                <Warnings dialog="may the power be with you!"/>
+                {MessageElements}
             </div>                             
         </div>
     )

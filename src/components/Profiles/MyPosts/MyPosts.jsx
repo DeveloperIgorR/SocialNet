@@ -1,5 +1,11 @@
 import s from "./MyPosts.module.css"
 import Post from "./Posts/Post";
+let PostsArray =[
+    {id:1, text:"Hey, how are you?"},
+    {id:2, text:"Do you like Star Wars?"},
+    {id:3, text:"May the power be with you!"},
+]
+let PostsElements = PostsArray.map(p=><Post textmesage={p.text}/>)
 const MyPosts = () => {
     return (
         <div> 
@@ -9,9 +15,7 @@ const MyPosts = () => {
                 <div><button>Add post</button></div>
             </div>
             <div className={s.items}>
-            <Post textmesage="Hey, how are you?"/>
-            <Post textmesage="Do you like Star Wars?"/>
-            <Post textmesage="May the power be with you!"/>  
+             {PostsElements}
             </div>
             
         </div>)

@@ -7,18 +7,18 @@ import Nav from "./components/Nav/Nav";
 import News from "./components/News/News";
 import Profiles from "./components/Profiles/Profiles";
 import Settings from "./components/Settings/Settings";
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
         <Nav />
         <div className="wrapper-components">
-          <Route path="/Profiles" component={Profiles} />
-          <Route path="/Messages" component={Messages} />
-          <Route path="/News" component={News} />
-          <Route path="/Music" component={Music} />
-          <Route path="/Settings" component={Settings} />
+          <Route path="/Profiles" render={ ()=> <Profiles PostsArray={props.PostsArray}/>} />
+          <Route path="/Messages" render={()=> <Messages NamesArray={props.NamesArray} MessagesArray={props.MessagesArray}/>} />
+          <Route path="/News" render={()=> <News/>} />
+          <Route path="/Music" render={ ()=><Music/>} />
+          <Route path="/Settings" render={ ()=><Settings/>} />
         </div>
       </div>
     </BrowserRouter>

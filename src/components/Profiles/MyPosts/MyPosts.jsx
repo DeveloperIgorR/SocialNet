@@ -1,12 +1,7 @@
 import s from "./MyPosts.module.css"
 import Post from "./Posts/Post";
-let PostsArray =[
-    {id:1, text:"Hey, how are you?"},
-    {id:2, text:"Do you like Star Wars?"},
-    {id:3, text:"May the power be with you!"},
-]
-let PostsElements = PostsArray.map(p=><Post textmesage={p.text}/>)
-const MyPosts = () => {
+const MyPosts = (props) => {
+    let PostsElements = props.PostsArray.map(p=><Post textmesage={p.text}/>)
     return (
         <div> 
             <h3>My Posts</h3>
@@ -20,4 +15,5 @@ const MyPosts = () => {
             
         </div>)
 };
+
 export default MyPosts;

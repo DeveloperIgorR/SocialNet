@@ -1,10 +1,10 @@
 import MyPosts from "./MyPosts/MyPosts"
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 const Profiles = (props) => {
-    return (
+       return (
         <div>
         <ProfileInfo/>
-        <MyPosts PostsArray={props.PostsArray}/>
+        <MyPosts PostsArray={props.data.PostsArray}/>
         </div >
     )
 };

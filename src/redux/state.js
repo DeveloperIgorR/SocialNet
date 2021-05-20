@@ -1,5 +1,5 @@
 let state ={
-    messages: {
+    messagesPage: {
         MessagesArray: [
         {id:1, message:"Hey, how are you?"},
         {id:2, message:"Do you like Star Wars?"},
@@ -9,7 +9,7 @@ let state ={
         {id:6, message:"May the power be with you!"},
         {id:7, message:"May the power be with you!"},
         ],
-    NamesArray: [
+        NamesArray: [
             {id:1, name:"Yoda"},
             {id:2, name:"Obivankenobi"},
             {id:3, name:"Vindu"},
@@ -17,12 +17,15 @@ let state ={
             {id:5, name:"EnikenSkywalker"},
             {id:6, name:"Padme"},
             {id:7, name:"LukSkywalker"},
-          ], 
+          ]
     },
-       PostsArray: [
+    profilesPage: {
+         PostsArray: [
             {id:1, text:"Hey, how are you?"},
             {id:2, text:"Do you like Star Wars?"},
             {id:3, text:"May the power be with you!"},
           ]          
+    }
+      
 }
-export default state
+export default state;

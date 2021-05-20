@@ -11,3 +11,7 @@
   grid-area: c;
   background-color: darkgoldenrod;
 }
+.wrapper{
+  margin-left: 80px;
+  margin-right: 80px;
+}

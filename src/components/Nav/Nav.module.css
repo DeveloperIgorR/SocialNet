@@ -15,4 +15,24 @@
   }
 .item a.active{
     color: goldenrod;
+}
+.itemx a.active{
+    color: goldenrod;
 }  
+.itemx img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.itemx a{
+    text-decoration: none;
+    font-size:xx-large;
+    color:rgb(215, 214, 235);
+}
+.itemx h2{
+    text-align: left;
+    
+}
+.itemx{
+    margin-top: 80px;
+}

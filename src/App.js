@@ -7,6 +7,8 @@ import Nav from "./components/Nav/Nav";
 import News from "./components/News/News";
 import Profiles from "./components/Profiles/Profiles";
 import Settings from "./components/Settings/Settings";
+import Friends from "./components/Friends/Friends";
+
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -19,6 +21,7 @@ const App = (props) => {
           <Route path="/News" render={()=> <News/>} />
           <Route path="/Music" render={ ()=><Music/>} />
           <Route path="/Settings" render={ ()=><Settings/>} />
+          <Route path="/Friends" render={ ()=><Friends/>} />
         </div>
       </div>
     </BrowserRouter>

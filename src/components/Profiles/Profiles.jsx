@@ -4,7 +4,7 @@ const Profiles = (props) => {
        return (
         <div>
         <ProfileInfo/>
-        <MyPosts PostsArray={props.data.PostsArray}/>
+        <MyPosts PostsArray={props.data.PostsArray} addPost={props.addPost}/>
         </div >
     )
 };

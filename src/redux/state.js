@@ -28,4 +28,11 @@ let state ={
     }
       
 }
+export let addPost =(newMessage)=>{
+  let newElement = {
+    id:4,
+    text: newMessage,
+  }
+  state.profilesPage.PostsArray.push(newElement)
+}
 export default state;

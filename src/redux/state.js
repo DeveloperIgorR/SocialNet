@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render"
+
 let state ={
     messagesPage: {
         MessagesArray: [
@@ -34,5 +36,6 @@ export let addPost =(newMessage)=>{
     text: newMessage,
   }
   state.profilesPage.PostsArray.push(newElement)
+  rerenderEntireTree(state)
 }
 export default state;

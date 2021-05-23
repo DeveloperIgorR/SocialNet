@@ -26,7 +26,8 @@ let state ={
             {id:1, text:"Hey, how are you?"},
             {id:2, text:"Do you like Star Wars?"},
             {id:3, text:"May the power be with you!"},
-          ]          
+          ],
+         newPostText:"StarWars"        
     }
       
 }
@@ -36,6 +37,10 @@ export let addPost =(newMessage)=>{
     text: newMessage,
   }
   state.profilesPage.PostsArray.push(newElement)
+  rerenderEntireTree(state)
+}
+export let updatePostText =(newText)=>{
+  state.profilesPage.newPostText=newText
   rerenderEntireTree(state)
 }
 export default state;

@@ -16,7 +16,7 @@ const App = (props) => {
         <Header />
         <Nav />
         <div className="wrapper-components">
-          <Route path="/Profiles" render={()=> <Profiles data={props.appState.profilesPage} 
+          <Route path="/Profiles" render={()=> <Profiles profilesPage={props.appState.profilesPage} 
                                                          addPost={props.addPost} />}
                                                          updatePostText={props.updatePostText} />
           <Route path="/Messages" render={()=> <Messages data={props.appState.messagesPage}/>} />

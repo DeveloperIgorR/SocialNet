@@ -31,12 +31,13 @@ let state ={
     }
       
 }
-export let addPost =(newMessage)=>{
+export let addPost =()=>{
   let newElement = {
     id:4,
-    text: newMessage,
+    text: state.profilesPage.newPostText,
   }
   state.profilesPage.PostsArray.push(newElement)
+  state.profilesPage.newPostText=""
   rerenderEntireTree(state)
 }
 export let updatePostText =(newText)=>{

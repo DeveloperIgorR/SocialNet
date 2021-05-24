@@ -1,16 +1,15 @@
 import React from 'react';
-import s from "./MyPosts.module.css"
+import s from "./MyPosts.module.css";
 import Post from "./Posts/Post";
 const MyPosts = (props) => {
     let PostsElements = props.PostsArray.map(p => <Post textmesage={p.text} />);
     let newPostElement = React.createRef();
     let addPosts = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text)
-        newPostElement.current.value='';
+        props.addPost()
     };
     let onPostChange = ()=>{
-        let text = newPostElement.current.value; 
+        let text = newPostElement.current.value;
+        props.updatePostText(text)
     };
     return (
         <div>

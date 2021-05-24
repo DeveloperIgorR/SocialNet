@@ -1,10 +1,14 @@
 import MyPosts from "./MyPosts/MyPosts"
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
+
 const Profiles = (props) => {
-       return (
+        return (
         <div>
-        <ProfileInfo/>
-        <MyPosts PostsArray={props.data.PostsArray} addPost={props.addPost} updatePostText ={props.updatePostText} />
+            <ProfileInfo />
+            <MyPosts PostsArray={props.profilesPage.PostsArray}
+                     addPost={props.addPost}
+                     newPostText={props.profilesPage.newPostText}
+                     updatePostText={props.updatePostText} />
         </div >
     )
 };

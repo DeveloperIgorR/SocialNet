@@ -1,5 +1,7 @@
-
-
+let rerenderEntireTree =()=>{}
+export const subscribe = observer=>{
+rerenderEntireTree=observer
+}
 let state ={
     messagesPage: {
         MessagesArray: [

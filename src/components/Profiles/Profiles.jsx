@@ -8,7 +8,7 @@ const Profiles = (props) => {
             <MyPosts PostsArray={props.profilesPage.PostsArray}
                      addPost={props.addPost}
                      newPostText={props.profilesPage.newPostText}
-                     updatePostText={props.updatePostText} />
+                     updateNewPostText={props.updateNewPostText} />
         </div >
     )
 };

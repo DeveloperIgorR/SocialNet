@@ -27,7 +27,7 @@ let state ={
             {id:2, text:"Do you like Star Wars?"},
             {id:3, text:"May the power be with you!"},
           ],
-         newPostText:"StarWars"        
+         newPostText:""        
     }
       
 }
@@ -36,12 +36,12 @@ export let addPost =()=>{
     id:4,
     text: state.profilesPage.newPostText,
   }
-  state.profilesPage.PostsArray.push(newElement)
-  state.profilesPage.newPostText=""
-  rerenderEntireTree(state)
+  state.profilesPage.PostsArray.push(newElement);
+  state.profilesPage.newPostText="";
+  rerenderEntireTree(state);
 }
-export let updatePostText =(newText)=>{
-  state.profilesPage.newPostText=newText
-  rerenderEntireTree(state)
+export let updateNewPostText =(newText)=>{
+  state.profilesPage.newPostText=newText;
+  rerenderEntireTree(state);
 }
 export default state;

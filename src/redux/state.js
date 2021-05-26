@@ -1,11 +1,9 @@
 let store = {
-  
-}
-let rerenderEntireTree =()=>{}
-export const subscribe = observer=>{
-rerenderEntireTree=observer
-}
-let state ={
+  rerenderEntireTree (){},
+  subscribe (observer){
+  rerenderEntireTree=observer
+  },
+   _state : {
     messagesPage: {
         MessagesArray: [
         {id:1, message:"Hey, how are you?"},
@@ -35,8 +33,11 @@ let state ={
          newPostText:""        
     }
       
-}
-export let addPost =()=>{
+  },
+  getState(){
+   return this._state
+  },
+  addPost (){
   let newElement = {
     id:4,
     text: state.profilesPage.newPostText,
@@ -44,9 +45,10 @@ export let addPost =()=>{
   state.profilesPage.PostsArray.push(newElement);
   state.profilesPage.newPostText="";
   rerenderEntireTree(state);
-}
-export let updateNewPostText =(newText)=>{
+  },
+  updateNewPostText(newText){
   state.profilesPage.newPostText=newText;
   rerenderEntireTree(state);
+  },
 }
-export default state;
+export default store;

@@ -1,3 +1,6 @@
+let store = {
+  
+}
 let rerenderEntireTree =()=>{}
 export const subscribe = observer=>{
 rerenderEntireTree=observer

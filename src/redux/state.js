@@ -40,14 +40,14 @@ let store = {
   addPost (){
   let newElement = {
     id:4,
-    text: state.profilesPage.newPostText,
+    text: this._state.profilesPage.newPostText,
   }
-  state.profilesPage.PostsArray.push(newElement);
-  state.profilesPage.newPostText="";
-  rerenderEntireTree(state);
+  this._state.profilesPage.PostsArray.push(newElement);
+  this._state.profilesPage.newPostText="";
+  this._rerenderEntireTree(state);
   },
   updateNewPostText(newText){
-  state.profilesPage.newPostText=newText;
+    this._state.profilesPage.newPostText=newText;
   rerenderEntireTree(state);
   },
 }

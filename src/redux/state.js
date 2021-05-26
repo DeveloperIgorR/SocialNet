@@ -44,11 +44,11 @@ let store = {
   }
   this._state.profilesPage.PostsArray.push(newElement);
   this._state.profilesPage.newPostText="";
-  this._rerenderEntireTree(state);
+  this._rerenderEntireTree(this._state);
   },
   updateNewPostText(newText){
     this._state.profilesPage.newPostText=newText;
-  rerenderEntireTree(state);
+  rerenderEntireTree(this._state);
   },
 }
 export default store;

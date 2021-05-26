@@ -1,7 +1,7 @@
 let store = {
-  rerenderEntireTree (){},
+  _callSubscriber (){},
   subscribe (observer){
-  rerenderEntireTree=observer
+  this._callSubscriber=observer
   },
    _state : {
     messagesPage: {
@@ -44,11 +44,11 @@ let store = {
   }
   this._state.profilesPage.PostsArray.push(newElement);
   this._state.profilesPage.newPostText="";
-  this._rerenderEntireTree(this._state);
+  this._callSubscriber(this._state);
   },
   updateNewPostText(newText){
     this._state.profilesPage.newPostText=newText;
-  rerenderEntireTree(this._state);
+  this._callSubscriber(this._state);
   },
 }
 export default store;

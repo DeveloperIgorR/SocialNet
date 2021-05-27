@@ -54,4 +54,11 @@ let store = {
     }
   },
 }
-export default store;
+export const actionAddPost = () => {
+  type:"ADD-POST"
+}
+
+export const actionUpdateNewPostText = ()=>{
+  type:"UPDATE-NEW-POST-TEXT"; newText:text
+}
+export default store

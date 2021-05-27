@@ -6,9 +6,8 @@ const Profiles = (props) => {
         <div>
             <ProfileInfo />
             <MyPosts PostsArray={props.profilesPage.PostsArray}
-                     addPost={props.addPost}
-                     newPostText={props.profilesPage.newPostText}
-                     updateNewPostText={props.updateNewPostText} />
+                     dispatch={props.dispatch}
+                     newPostText={props.profilesPage.newPostText}/>
         </div >
     )
 };

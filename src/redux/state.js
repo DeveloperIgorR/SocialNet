@@ -56,11 +56,6 @@ let store = {
     }
   },
 }
-export const actionAddPost = () => {
-  return { type: ADD_POST }
-}
-
-export const actionUpdateNewPostText = (text) => {
-  return { type: UPDATE_NEW_POST_TEXT, newText: text }
-}
+export const actionAddPost = () => ({type: ADD_POST}) 
+export const actionUpdateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
 export default store

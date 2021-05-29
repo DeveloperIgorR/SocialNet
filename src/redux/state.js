@@ -1,5 +1,8 @@
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT"
+const SEND_MESSAGE = "SEND_MESSAGE"
+
 let store = {
   _callSubscriber() { },
   _state: {
@@ -11,8 +14,7 @@ let store = {
         { id: 4, message: "May the power be with you!" },
         { id: 5, message: "May the power be with you!" },
         { id: 6, message: "May the power be with you!" },
-        { id: 7, message: "May the power be with you!" },
-      ],
+        ],
       NamesArray: [
         { id: 1, name: "Yoda" },
         { id: 2, name: "Obivankenobi" },
@@ -21,7 +23,8 @@ let store = {
         { id: 5, name: "EnikenSkywalker" },
         { id: 6, name: "Padme" },
         { id: 7, name: "LukSkywalker" },
-      ]
+      ],
+      newMessageText:""
     },
     profilesPage: {
       PostsArray: [
@@ -53,7 +56,18 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilesPage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    }
+    }else if (action.type === SEND_MESSAGE) {
+      let newElement = {
+        id: 7,
+        text: this._state.messagesPage.newMessageText,
+      }
+      this._state.messagesPage.PostsArray.push(newElement);
+      this._state.messagesPage.newPostText = "";
+      this._callSubscriber(this._state);
+    }else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+      this._state.messagesPage.newMessageText = action.newMessage;
+      this._callSubscriber(this._state);
+    }  
   },
 }
 export const actionAddPost = () => ({type: ADD_POST}) 

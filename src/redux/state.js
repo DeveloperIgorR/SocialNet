@@ -59,10 +59,10 @@ let store = {
     }else if (action.type === SEND_MESSAGE) {
       let newElement = {
         id: 7,
-        text: this._state.messagesPage.newMessageText,
+        message: this._state.messagesPage.newMessageText,
       }
-      this._state.messagesPage.PostsArray.push(newElement);
-      this._state.messagesPage.newPostText = "";
+      this._state.messagesPage.MessagesArray.push(newElement);
+      this._state.messagesPage.newMessageText = "";
       this._callSubscriber(this._state);
     }else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.messagesPage.newMessageText = action.newMessage;
@@ -70,6 +70,8 @@ let store = {
     }  
   },
 }
+export const actionSendMessage = ()=>({type:SEND_MESSAGE})
+export const actionUpdateNewMessageText = (message)=>({type:UPDATE_NEW_MESSAGE_TEXT,newMessage:message })
 export const actionAddPost = () => ({type: ADD_POST}) 
 export const actionUpdateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
 export default store

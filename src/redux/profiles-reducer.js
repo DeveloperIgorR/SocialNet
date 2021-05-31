@@ -1,8 +1,7 @@
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const profilesReducer = (state,action)=>{
-    debugger
-    if (action.type === ADD_POST) {
+        if (action.type === ADD_POST) {
         let newElement = {
           id: 4,
           text: state.newPostText,
@@ -15,3 +14,5 @@ const profilesReducer = (state,action)=>{
     return state
 }
 export default profilesReducer
+export const actionAddPost = () => ({type: ADD_POST}) 
+export const actionUpdateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })

@@ -14,3 +14,5 @@ const messagesReducer = (state,action)=>{
     return state
 }
 export default messagesReducer
+export const actionSendMessage = ()=>({type:SEND_MESSAGE})
+export const actionUpdateNewMessageText = (message)=>({type:UPDATE_NEW_MESSAGE_TEXT,newMessage:message })

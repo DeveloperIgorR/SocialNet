@@ -1,5 +1,5 @@
 import React from 'react'
-import { actionSendMessage, actionUpdateNewMessageText } from "../../redux/state"
+import { actionSendMessage, actionUpdateNewMessageText } from "../../redux/messages-reducer"
 import s from "./Messages.module.css"
 import MessagesItem from "./MessagesItem/MessagesItem"
 import Warnings from "./Warnings/Warnings"

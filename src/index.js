@@ -3,7 +3,7 @@ import React from "react"
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 import App from './App'
-import store from "./redux/state"
+import store from "./redux/redux-store"
  let rerenderEntireTree = () => {
     ReactDOM.render(
       <React.StrictMode>

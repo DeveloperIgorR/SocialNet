@@ -1,17 +1,15 @@
 import React from 'react';
-import { actionAddPost, actionUpdateNewPostText } from '../../../redux/profiles-reducer';
 import s from "./MyPosts.module.css";
 import Post from "./Posts/Post";
 const MyPosts = (props) => {
     let PostsElements = props.PostsArray.map(p => <Post textmesage={p.text} />)
     let newPostElement = React.createRef()
     let addPost = () => {
-        props.dispatch(actionAddPost())
+        props.onAddPost()
     }
-
     let onPostChange = () => {
         let text = newPostElement.current.value
-        props.dispatch(actionUpdateNewPostText(text))
+        props.postChange(text)
     }
 
     return (

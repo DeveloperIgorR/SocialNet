@@ -1,5 +1,4 @@
 import React from 'react'
-import { actionSendMessage, actionUpdateNewMessageText } from "../../redux/messages-reducer"
 import s from "./Messages.module.css"
 import MessagesItem from "./MessagesItem/MessagesItem"
 import Warnings from "./Warnings/Warnings"
@@ -8,10 +7,10 @@ const Messages = (props) => {
     let MessageElements = props.data.MessagesArray.map(m => <Warnings dialog={m.message} />)
     let onMessageChange = (e) => {
         let message = e.target.value
-        props.dispatch(actionUpdateNewMessageText(message))
+        props.MessageChange(message)
     }
     let sendMessage = () => {
-        props.dispatch(actionSendMessage())
+        props.onSendMessage()
     }
     return (
         <div className={s.dialogs}>

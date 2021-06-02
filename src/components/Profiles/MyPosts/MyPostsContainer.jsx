@@ -2,7 +2,7 @@ import React from 'react';
 import { actionAddPost, actionUpdateNewPostText } from '../../../redux/profiles-reducer';
 import MyPosts from './MyPosts';
 const MyPostsContainer = (props) => {
-        let onAddPost = () => {
+    let onAddPost = () => {
         props.dispatch(actionAddPost())
     }
 
@@ -11,8 +11,8 @@ const MyPostsContainer = (props) => {
     }
 
     return (
-    <MyPosts onAddPost={onAddPost} postChange={postChange}
-     PostsArray={props.PostsArray} newPostText={props.newPostText}/>
+        <MyPosts onAddPost={onAddPost} postChange={postChange}
+            PostsArray={props.PostsArray} newPostText={props.newPostText} />
     )
 };
 

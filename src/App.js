@@ -1,13 +1,13 @@
 import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Messages from "./components/Messages/Messages";
 import Music from "./components/Music/Music";
 import Nav from "./components/Nav/Nav";
 import News from "./components/News/News";
 import Profiles from "./components/Profiles/Profiles";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
+import MessagesContainer from "./components/Messages/MessagesContainer";
 
 const App = (props) => {
   return (
@@ -17,8 +17,9 @@ const App = (props) => {
         <Nav />
         <div className="wrapper-components">
           <Route path="/Profiles" render={() => <Profiles profilesPage={props.appState.profilesPage}
-                                                          dispatch={props.dispatch} />} />
-          <Route path="/Messages" render={() => <Messages data={props.appState.messagesPage}
+                                                          dispatch={props.dispatch}
+                                                          store={props.store} />} />
+          <Route path="/Messages" render={() => <MessagesContainer data={props.appState.messagesPage}
                                                           dispatch={props.dispatch}
                                                  newMessageText={props.appState.messagesPage.newMessageText}/>}/>
           <Route path="/News" render={() => <News />} />

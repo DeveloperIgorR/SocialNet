@@ -9,8 +9,9 @@ import { Provider } from "react-redux"
 let rerenderEntireTree = () => {
   ReactDOM.render(
     <BrowserRouter>
-      <Provider store={store} />
-      <App appState={store.getState()} dispatch={store.dispatch.bind(store)} store={store} />
+      <Provider store={store}>
+      <App />
+      </Provider>
     </BrowserRouter>,
     document.getElementById('root')
   )

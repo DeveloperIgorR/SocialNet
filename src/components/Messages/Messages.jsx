@@ -3,10 +3,10 @@ import s from "./Messages.module.css"
 import MessagesItem from "./MessagesItem/MessagesItem"
 import Warnings from "./Warnings/Warnings"
 const Messages = (props) => {
-    // let state = props.
-    let NamesElements = props.data.NamesArray.map(n => <MessagesItem name={n.name} id={n.id} />)
-    let MessageElements = props.data.MessagesArray.map(m => <Warnings dialog={m.message} />)
-    // let newMessageText = state.newMessageText
+    let state = props.messagesPage
+    let NamesElements = state.NamesArray.map(n => <MessagesItem name={n.name} id={n.id} />)
+    let MessageElements = state.MessagesArray.map(m => <Warnings dialog={m.message} />)
+    let newMessageText = state.newMessageText
     let onMessageChange = (e) => {
         let message = e.target.value
         props.MessageChange(message)

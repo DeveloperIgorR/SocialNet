@@ -3,8 +3,10 @@ import s from "./Messages.module.css"
 import MessagesItem from "./MessagesItem/MessagesItem"
 import Warnings from "./Warnings/Warnings"
 const Messages = (props) => {
+    // let state = props.
     let NamesElements = props.data.NamesArray.map(n => <MessagesItem name={n.name} id={n.id} />)
     let MessageElements = props.data.MessagesArray.map(m => <Warnings dialog={m.message} />)
+    // let newMessageText = state.newMessageText
     let onMessageChange = (e) => {
         let message = e.target.value
         props.MessageChange(message)
@@ -20,7 +22,7 @@ const Messages = (props) => {
             <div className={s.messages}>
                 <div>{MessageElements}</div>
                 <div>
-                    <div><textarea onChange={onMessageChange} value={props.newMessageText} /></div>
+                    <div><textarea onChange={onMessageChange} value={newMessageText} /></div>
                     <div><button onClick={sendMessage}>Отправить сообщение</button></div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import s from "./MyPosts.module.css";
 import Post from "./Posts/Post";
 const MyPosts = (props) => {
-    debugger
+    
     let state = props.profilesPage
     let PostsElements = state.PostsArray.map(p => <Post textmesage={p.text} />)
     let newPostElement = React.createRef()

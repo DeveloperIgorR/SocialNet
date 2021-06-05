@@ -1,18 +1,21 @@
 import Messages from "./Messages"
 import { actionSendMessage, actionUpdateNewMessageText } from "../../redux/messages-reducer"
 import { connect } from "react-redux"
-import store from "../../redux/redux-store"
-let mapDispatchToProps =()=>{
-    return{
-        MessageChange:(message)=>{store.dispatch(actionUpdateNewMessageText(message))},
-        onSendMessage:()=>{store.dispatch(actionSendMessage())}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        MessageChange: (message) => {
+            dispatch(actionUpdateNewMessageText(message))
+        },
+        onSendMessage: () => {
+            dispatch(actionSendMessage())
+        }
     }
 }
-let mapStateToProps =(state)=>{
-    return{
-        messagesPage:state.messagesPage  
+let mapStateToProps = (state) => {
+    return {
+        messagesPage: state.messagesPage
     }
 }
 
-const MessagesContainer = connect(mapDispatchToProps(),mapStateToProps())(Messages)
+const MessagesContainer = connect(mapDispatchToProps, mapStateToProps)(Messages)
 export default MessagesContainer

@@ -9,7 +9,10 @@
 }
 .wrapper-components{
   grid-area: c;
-  background-color: darkgoldenrod;
+  
+  background-image: url(https://vsthemes.org/uploads/posts/2020-12/1608944475_116-wnewohk.jpg);
+  background-size: cover;
+  color: rgb(242, 243, 243);
 }
 .wrapper{
   margin-left: 80px;

@@ -3,6 +3,7 @@ import s from "./Messages.module.css"
 import MessagesItem from "./MessagesItem/MessagesItem"
 import Warnings from "./Warnings/Warnings"
 const Messages = (props) => {
+   
     let state = props.messagesPage
     let NamesElements = state.NamesArray.map(n => <MessagesItem name={n.name} id={n.id} />)
     let MessageElements = state.MessagesArray.map(m => <Warnings dialog={m.message} />)

@@ -11,13 +11,13 @@ let initialState = {
  }
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
+    case FOLLOW:
       return {
         ...state,
-        newMessageText : "",
+        users:[...state,users],
         MessagesArray: [...state.MessagesArray, { id: 7, message: state.newMessageText }],
       }
-    case UPDATE_NEW_MESSAGE_TEXT:
+    case UNFOLLOW:
       return {
          ...state,
          newMessageText : action.newMessage

@@ -8,7 +8,7 @@ import Profiles from "./components/Profiles/Profiles";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import MessagesContainer from "./components/Messages/MessagesContainer";
-import FindUsers from "./components/FindUsers/FindUsers";
+import FindUsersContainer from "./components/FindUsers/FindUsersContainer";
 
 
 
@@ -24,7 +24,7 @@ const App = (props) => {
           <Route path="/News" render={() => <News />} />
           <Route path="/Music" render={() => <Music />} />
           <Route path="/Settings" render={() => <Settings />} />
-          <Route path="/FindUsers" render={() => <FindUsers />} />
+          <Route path="/FindUsers" render={() => <FindUsersContainer/>} />
           <Route path="/Friends" render={() => <Friends />} />
           </div>
       </div>

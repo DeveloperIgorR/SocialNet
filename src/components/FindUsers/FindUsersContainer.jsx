@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { followAC, setUsersAC, unfollowAC } from "../../redux/users-reducer"
+import FindUsers from "./FindUsers"
 let mapStateToProps = (state) => {
     return {
         users: state.findUsersPage.users
@@ -18,4 +19,5 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default FindUsersContainer = connect(mapStateToProps, mapDispatchToProps)(FindUsers)
+const FindUsersContainer = connect(mapStateToProps, mapDispatchToProps)(FindUsers)
+export default FindUsersContainer

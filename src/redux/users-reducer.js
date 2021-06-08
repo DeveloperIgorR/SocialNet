@@ -3,10 +3,10 @@ const UNFOLLOW = "UNFOLLOW"
 const SET_USERS = "SET_USERS"
 let initialState = {
   users: [
-    { id: 1,followed:true, fullName: "Luk",information:"Hi, I am podavan",location:{country:Russia,city:Ivanovo} },
-    { id: 2,followed:false, fullName: "Petr",information:"Hi, I am jedi",location:{country:USA,city:NewYork} },
-    { id: 3,followed:false, fullName: "Vindu",information:"Hi, I am magistr",location:{country:India,city:Deli} },
-    { id: 4,followed:true, fullName: "Yoda",information:"Hi, I am master",location:{country:Germany,city:Berlin} },
+    { id: 1,followed:true, fullName: "Luk",information:"Hi, I am podavan",location:{country:"Russia",city:"Ivanovo"} },
+    { id: 2,followed:false, fullName: "Petr",information:"Hi, I am jedi",location:{country:"USA",city:"NewYork"} },
+    { id: 3,followed:false, fullName: "Vindu",information:"Hi, I am magistr",location:{country:"India",city:"Deli"} },
+    { id: 4,followed:true, fullName: "Yoda",information:"Hi, I am master",location:{country:"Germany",city:"Berlin"} },
     
   ],
  }

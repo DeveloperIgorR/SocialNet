@@ -1,6 +1,7 @@
 import * as axios from 'axios'
 import React from 'react'
 import styles from './FindUsers.module.css'
+import userImg from '../../assets/images/weider.png'
 const FindUsers = (props) => {
   if(props.users.length===0){
     axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons=>{
@@ -12,7 +13,7 @@ const FindUsers = (props) => {
       props.users.map(u => <div key={u.id}>
         <span>
           <div>
-            <img src={u.photoUrl} className={styles.styleUsersPhoto} />
+            <img src={u.photos.small !=null ?u.photos.small:userImg} className={styles.styleUsersPhoto} />
           </div>
           <div>
             {u.followed

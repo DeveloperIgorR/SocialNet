@@ -1,7 +1,12 @@
+import * as axios from 'axios'
 import React from 'react'
 import styles from './FindUsers.module.css'
 const FindUsers = (props) => {
-  // props.setUsers()!
+  if(props.users.length===0){
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons=>{
+      props.setUsers(respons.data.items)
+    })
+  }
   return <div>
     {
       props.users.map(u => <div key={u.id}>
@@ -17,9 +22,9 @@ const FindUsers = (props) => {
           </div>
         </span>
         <span>
-          <div>{u.fullName}</div>
-          <div>{u.information}</div>
-          <div>{u.location.country}</div>
+          <div>{u.name}</div>
+          <div>{u.status}</div>
+          {/* <div>{u.location.country}</div> */}
         </span>
       </div>)
     }

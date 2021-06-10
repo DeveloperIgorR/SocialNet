@@ -3,16 +3,14 @@ import React from 'react'
 import styles from './FindUsers.module.css'
 import userImg from '../../assets/images/weider.png'
 class FindUsers extends React.Component {
-      getUsers = () => {
-      if (this.props.users.length === 0) {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons => {
-          this.props.setUsers(respons.data.items)
-        })
-      }
-    }
-    render() {
+  constructor(props) {
+    super(props)
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons => {
+      this.props.setUsers(respons.data.items)
+    })
+  }
+  render() {
     return <div>
-      <button onClick={this.getUsers}>Get Users</button>
       {
         this.props.users.map(u => <div key={u.id}>
           <span>

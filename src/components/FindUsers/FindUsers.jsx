@@ -3,12 +3,14 @@ import React from 'react'
 import styles from './FindUsers.module.css'
 import userImg from '../../assets/images/weider.png'
 const FindUsers = (props) => {
+  let getUsers = () => {
   if(props.users.length===0){
     axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons=>{
       props.setUsers(respons.data.items)
-    })
+    })}
   }
   return <div>
+    <button onClick={getUsers}>Get Users</button>
     {
       props.users.map(u => <div key={u.id}>
         <span>

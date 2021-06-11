@@ -3,8 +3,7 @@ import React from 'react'
 import styles from './FindUsers.module.css'
 import userImg from '../../assets/images/weider.png'
 class FindUsers extends React.Component {
-  constructor(props) {
-    super(props)
+   componentDidMount(){    
     axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons => {
       this.props.setUsers(respons.data.items)
     })

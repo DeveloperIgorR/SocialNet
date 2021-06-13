@@ -3,25 +3,23 @@ import React from 'react'
 import styles from './FindUsers.module.css'
 import userImg from '../../assets/images/weider.png'
 class FindUsers extends React.Component {
-   componentDidMount(){    
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respons => {
+  componentDidMount() {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(respons => {
       this.props.setUsers(respons.data.items)
     })
   }
-    render() {
-      let pagesCount = this.props.totalCount/this.props.pageSize
-      let pages = []
-      for(let i=1;i<=pagesCount;i++ ){
-         pages.push(i)    
-      }
+  render() {
+    let pagesCount = Math.ceil(this.props.totalCount / this.props.pageSize)
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i)
+    }
     return <div>
       <div>
-        {pages.map(p=><span>{p}</span>)}
-        <span className={styles.styleCurrentPage}>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
+        {pages.map(p => {
+          return <span className={this.props.currentPage === p && styles.styleCurrentPage}
+                 onClick={()=>{this.props.setCurrentPage(p)}}>{p}</span>
+        })}
       </div>
       {
         this.props.users.map(u => <div key={u.id}>

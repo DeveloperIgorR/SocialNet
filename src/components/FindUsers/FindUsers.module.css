@@ -3,5 +3,6 @@
     height: 100px;
 }
 .styleCurrentPage{
-    font-size: bold;
+    font-size:large;
+    color: rgba(81, 158, 122, 0.747);
 }

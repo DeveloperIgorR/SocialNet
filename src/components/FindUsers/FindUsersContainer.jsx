@@ -3,7 +3,9 @@ import { followAC, setUsersAC, unfollowAC } from "../../redux/users-reducer"
 import FindUsers from "./FindUsers"
 let mapStateToProps = (state) => {
     return {
-        users: state.findUsersPage.users
+        users: state.findUsersPage.users,
+        pageSize:state.findUsersPage.pageSize,
+        totalCount:state.findUsersPage.totalCount,
     }
 }
 let mapDispatchToProps = (dispatch) => {

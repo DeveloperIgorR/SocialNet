@@ -8,7 +8,12 @@ class FindUsers extends React.Component {
       this.props.setUsers(respons.data.items)
     })
   }
-  render() {
+    render() {
+      let pagesCount = this.props.totalCount/this.props.pageSize
+      let pages = []
+      for(let i=1;i<=pagesCount;i++ ){
+         pages.push(i)    
+      }
     return <div>
       <div>
         <span className={styles.styleCurrentPage}>1</span>

@@ -10,6 +10,13 @@ class FindUsers extends React.Component {
   }
   render() {
     return <div>
+      <div>
+        <span className={styles.styleCurrentPage}>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+      </div>
       {
         this.props.users.map(u => <div key={u.id}>
           <span>

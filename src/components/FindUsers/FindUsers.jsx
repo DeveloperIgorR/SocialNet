@@ -4,7 +4,16 @@ import styles from './FindUsers.module.css'
 import userImg from '../../assets/images/weider.png'
 class FindUsers extends React.Component {
   componentDidMount() {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(respons => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+    .then(respons => {
+      this.props.setUsers(respons.data.items)
+      this.props.setTotalCount(respons.data.totalCount)
+    })
+  }
+  onPageChanged = (pageNumber)=>{
+    this.props.setCurrentPage(pageNumber)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+    .then(respons => {
       this.props.setUsers(respons.data.items)
     })
   }
@@ -18,7 +27,7 @@ class FindUsers extends React.Component {
       <div>
         {pages.map(p => {
           return <span className={this.props.currentPage === p && styles.styleCurrentPage}
-                 onClick={()=>{this.props.setCurrentPage(p)}}>{p}</span>
+                 onClick={()=>{this.onPageChanged(p)}}>{p}</span>
         })}
       </div>
       {

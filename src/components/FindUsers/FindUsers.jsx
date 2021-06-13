@@ -16,6 +16,7 @@ class FindUsers extends React.Component {
       }
     return <div>
       <div>
+        {pages.map(p=><span>{p}</span>)}
         <span className={styles.styleCurrentPage}>1</span>
         <span>2</span>
         <span>3</span>

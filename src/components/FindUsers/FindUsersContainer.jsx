@@ -1,6 +1,30 @@
+import * as axios from 'axios'
+import React from 'react'
 import { connect } from "react-redux"
 import { followAC, setCurrentPageAC, setTotalCountAC, setUsersAC, unfollowAC } from "../../redux/users-reducer"
-import FindUsers from "./FindUsers"
+import FindUsers from './FindUsers'
+class FindUsersAPI extends React.Component {
+    componentDidMount() {
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        .then(respons => {
+          this.props.setUsers(respons.data.items)
+          this.props.setTotalCount(respons.data.totalCount)
+        })
+    }
+    onPageChanged = (pageNumber) => {
+      this.props.setCurrentPage(pageNumber)
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+        .then(respons => {
+          this.props.setUsers(respons.data.items)
+        })
+    }
+    render() {
+          return <FindUsers totalCount={this.props.totalCount}
+          pageSize={this.props.pageSize } currentPage={this.props.currentPage}
+          users={this.props.users} unfollow={this.props.unfollow}
+          follow={this.props.follow} onPageChanged={this.onPageChanged}/>
+  }
+  }
 let mapStateToProps = (state) => {
     return {
         users: state.findUsersPage.users,
@@ -29,5 +53,5 @@ let mapDispatchToProps = (dispatch) => {
 
     }
 }
-const FindUsersContainer = connect(mapStateToProps, mapDispatchToProps)(FindUsers)
+const FindUsersContainer = connect(mapStateToProps, mapDispatchToProps)(FindUsersAPI)
 export default FindUsersContainer

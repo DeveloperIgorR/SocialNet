@@ -2,7 +2,7 @@ import * as axios from 'axios'
 import React from 'react'
 import { connect } from "react-redux"
 import { followAC, setCurrentPageAC, setPreloaderAC, setTotalCountAC, setUsersAC, unfollowAC } from "../../redux/users-reducer"
-import preloader from '../../assets/images/Rocket.gif'
+import Preloader from '../Common/Preloader/Preloader'
 import FindUsers from './FindUsers'
 
 class FindUsersAPI extends React.Component {
@@ -26,7 +26,7 @@ class FindUsersAPI extends React.Component {
     }
     render() {
         return <>
-            {this.props.isFetching ? <img src={preloader} /> : null}
+            {this.props.isFetching ? <Preloader/> : null}
             <FindUsers totalCount={this.props.totalCount}
                 pageSize={this.props.pageSize} currentPage={this.props.currentPage}
                 users={this.props.users} unfollow={this.props.unfollow}

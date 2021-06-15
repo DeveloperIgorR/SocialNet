@@ -2,7 +2,9 @@ import * as axios from 'axios'
 import React from 'react'
 import { connect } from "react-redux"
 import { followAC, setCurrentPageAC, setTotalCountAC, setUsersAC, unfollowAC } from "../../redux/users-reducer"
+import preloader from '../../assets/images/Rocket.gif'
 import FindUsers from './FindUsers'
+
 class FindUsersAPI extends React.Component {
     componentDidMount() {
       axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
@@ -19,10 +21,13 @@ class FindUsersAPI extends React.Component {
         })
     }
     render() {
-          return <FindUsers totalCount={this.props.totalCount}
+          return <>
+          {this.props.isFetching?<img src={preloader}/>:null}
+          <FindUsers totalCount={this.props.totalCount}
           pageSize={this.props.pageSize } currentPage={this.props.currentPage}
           users={this.props.users} unfollow={this.props.unfollow}
           follow={this.props.follow} onPageChanged={this.onPageChanged}/>
+          </>
   }
   }
 let mapStateToProps = (state) => {
@@ -31,6 +36,7 @@ let mapStateToProps = (state) => {
         pageSize:state.findUsersPage.pageSize,
         totalCount:state.findUsersPage.totalCount,
         currentPage:state.findUsersPage.currentPage,
+        isFetching:state.findUsersPage.isFetching,
     }
 }
 let mapDispatchToProps = (dispatch) => {

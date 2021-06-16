@@ -1,12 +1,14 @@
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+const SET_USER_PROFILE = "SET_USER_PROFILE"
 let initialState = {
   PostsArray: [
     { id: 1, text: "Hey, how are you?" },
     { id: 2, text: "Do you like Star Wars?" },
     { id: 3, text: "May the power be with you!" },
   ],
-  newPostText: ""
+  newPostText: "",
+  profile: null,
 }
 const profilesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -21,6 +23,11 @@ const profilesReducer = (state = initialState, action) => {
         ...state,
         newPostText: action.newText
       }
+    case SET_USER_PROFILE:
+        return {
+          ...state,
+          profile: action.profile
+        }  
     default:
       return state
   }
@@ -28,3 +35,4 @@ const profilesReducer = (state = initialState, action) => {
 export default profilesReducer
 export const actionAddPost = () => ({ type: ADD_POST })
 export const actionUpdateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+export const setUserProfile = (profile) => ({ type:SET_USER_PROFILE, profile })

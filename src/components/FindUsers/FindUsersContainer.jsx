@@ -1,7 +1,7 @@
 import * as axios from 'axios'
 import React from 'react'
 import { connect } from "react-redux"
-import { followAC, setCurrentPageAC, setPreloaderAC, setTotalCountAC, setUsersAC, unfollowAC } from "../../redux/users-reducer"
+import { follow, setCurrentPage, setPreloader, setTotalCount, setUsers, unfollow } from "../../redux/users-reducer"
 import Preloader from '../Common/Preloader/Preloader'
 import FindUsers from './FindUsers'
 
@@ -43,28 +43,6 @@ let mapStateToProps = (state) => {
         isFetching: state.findUsersPage.isFetching,
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalCount: (totalCount) => {
-            dispatch(setTotalCountAC(totalCount))
-        },
-        setPreloader: (isFetching) => {
-            dispatch(setPreloaderAC(isFetching))
-        }
-
-    }
-}
-const FindUsersContainer = connect(mapStateToProps, mapDispatchToProps)(FindUsersAPI)
+const FindUsersContainer = connect(mapStateToProps,{follow,unfollow,setUsers,setCurrentPage,
+    setTotalCount,setPreloader} )(FindUsersAPI)
 export default FindUsersContainer

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { actionAddPost, actionUpdateNewPostText } from '../../../redux/profiles-reducer';
 import MyPosts from './MyPosts';
 let mapDispatchToProps = (dispatch) => {
+    
     return {
         onAddPost: () => {
             dispatch(actionAddPost())

@@ -1,7 +1,7 @@
 import * as axios from 'axios'
 import React from 'react'
 import { connect } from "react-redux"
-import Profiles from "./Profiles"
+import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import {setUserProfile} from "../../redux/profiles-reducer"
 import { withRouter } from 'react-router-dom'
 class ProfilesContainer extends React.Component {
@@ -17,7 +17,7 @@ class ProfilesContainer extends React.Component {
     render() {
         return (
             
-                <Profiles {...this.props} profile={this.props.profile} />
+                <ProfileInfo {...this.props} profile={this.props.profile} />
             
         )
     }

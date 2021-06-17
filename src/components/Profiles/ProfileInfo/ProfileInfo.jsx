@@ -2,6 +2,7 @@ import React from 'react'
 import Preloader from "../../Common/Preloader/Preloader"
 import s from "./ProfileInfo.module.css"
 const ProfileInfo = (props) => {
+    debugger
     if (!props.profile) {
         return<Preloader/>
     }
@@ -16,6 +17,7 @@ const ProfileInfo = (props) => {
                 <div><span>Discription</span></div>
             </div>
         </div>
+        
     )
 }
 export default ProfileInfo

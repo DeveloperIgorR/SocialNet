@@ -11,14 +11,14 @@ import FindUsersContainer from "./components/FindUsers/FindUsersContainer";
 import ProfilesContainer from "./components/Profiles/ProfilesContainer";
 
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
         <Nav />
         <div className="wrapper-components">
-          <Route path="/Profiles" render={() => <ProfilesContainer/>} />
+          <Route path="/Profiles/:userId?" render={() => <ProfilesContainer/>} />
           <Route path="/Messages" render={() => <MessagesContainer/>}/>
           <Route path="/News" render={() => <News />} />
           <Route path="/Music" render={() => <Music />} />

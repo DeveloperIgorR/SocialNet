@@ -6,3 +6,6 @@
     grid-area: h;
     background-color: rgba(42, 168, 162, 0.829);
   }
+  .login{
+    float: right;
+  }

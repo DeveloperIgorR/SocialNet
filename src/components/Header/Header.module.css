@@ -8,4 +8,11 @@
   }
   .login{
     float: right;
+    font-size: large;
+    font-weight: bolder;
   }
+  .login a {
+    text-decoration: none;
+    color: cornsilk;
+  }
+  

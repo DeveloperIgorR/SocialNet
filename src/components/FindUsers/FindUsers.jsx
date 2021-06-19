@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './FindUsers.module.css'
 import userImg from '../../assets/images/weider.png'
 import { NavLink } from 'react-router-dom'
+import * as axios from 'axios'
 const FindUsers = (props) => {
   let pagesCount = Math.ceil(props.totalCount / props.pageSize)
   let pages = []
@@ -25,8 +26,24 @@ const FindUsers = (props) => {
           </div>
           <div>
             {u.followed
-              ? <button onClick={() => { props.unfollow(u.id) }}>Отписаться</button>
-              : <button onClick={() => { props.follow(u.id) }}>Подписаться</button>
+              ? <button onClick={() => {
+                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                {withCredentials:true,
+                headers:{'API-KEY':'b034670b-e3d4-4464-a5dc-9cfc4caad1a1'}})
+                .then(respons => {
+                  if(respons.data.resultCode == 0)
+                   {props.unfollow(u.id)}
+                })
+                  }}>Отписаться</button>
+              : <button onClick={() => { 
+                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},
+                {withCredentials:true,
+                headers:{'API-KEY':'b034670b-e3d4-4464-a5dc-9cfc4caad1a1'}})
+                .then(respons => {
+                   if(respons.data.resultCode == 0)
+                   {props.follow(u.id)}
+                })
+                 }}>Подписаться</button>
             }
           </div>
         </span>

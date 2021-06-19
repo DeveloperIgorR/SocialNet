@@ -2,11 +2,11 @@ import React from 'react'
 import Preloader from "../../Common/Preloader/Preloader"
 import s from "./ProfileInfo.module.css"
 const ProfileInfo = (props) => {
-    debugger
+    
     if (!props.profile) {
         return<Preloader/>
     }
-    debugger
+   
     return (
         <div >
             <div className={s.content}>

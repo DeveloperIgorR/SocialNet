@@ -12,4 +12,12 @@ export const followingApi = {
            {follow(id)}
         })
     },
+    setUnfollow(id){
+        return  instance.delete(`follow/${id}`)
+        .then(respons => {
+          if(respons.data.resultCode == 0)
+           {unfollow(id)}
+        })
+    }
+
 }

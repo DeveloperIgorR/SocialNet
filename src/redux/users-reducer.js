@@ -58,7 +58,7 @@ export const setUsers = (users) => ({ type: SET_USERS, users })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount })
 export const setPreloader = (isFetching) => ({ type: SET_PRELOADER, isFetching })
-export const getUserThunkCreator = (currentPage, pageSize) => {
+export const getUsersThunkCreator = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(setPreloader(true))
     usersApi.getUsers(currentPage, pageSize)

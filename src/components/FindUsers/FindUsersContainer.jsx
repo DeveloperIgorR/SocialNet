@@ -1,20 +1,13 @@
-import * as axios from 'axios'
 import React from 'react'
 import { connect } from "react-redux"
 import { usersApi } from '../../api/getUsersApi'
-import { follow, setCurrentPage, setPreloader, setTotalCount, setUsers, unfollow } from "../../redux/users-reducer"
+import { follow, getUsersThunkCreator, setCurrentPage, setPreloader, setTotalCount, setUsers, unfollow } from "../../redux/users-reducer"
 import Preloader from '../Common/Preloader/Preloader'
 import FindUsers from './FindUsers'
 
 class FindUsersAPI extends React.Component {
     componentDidMount() {
-        this.props.setPreloader(true)
-        usersApi.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.setPreloader(false)
-                this.props.setUsers(data.items)
-                this.props.setTotalCount(data.totalCount)
-            })
+       this.props.getUsersThunkCreator()
     }
     onPageChanged = (pageNumber) => {
         this.props.setPreloader(true)
@@ -46,6 +39,6 @@ let mapStateToProps = (state) => {
 }
 const FindUsersContainer = connect(mapStateToProps, {
     follow, unfollow, setUsers, setCurrentPage,
-    setTotalCount, setPreloader
+    setTotalCount, setPreloader,getUsersThunkCreator
 })(FindUsersAPI)
 export default FindUsersContainer

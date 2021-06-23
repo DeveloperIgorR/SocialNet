@@ -1,22 +1,15 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { usersApi } from '../../api/getUsersApi'
-import { follow, getUsersThunkCreator, setCurrentPage, setPreloader, setTotalCount, setUsers, unfollow } from "../../redux/users-reducer"
+import { follow, getUsersThunkCreator, unfollowThunkCreator, setCurrentPage,unfollow } from "../../redux/users-reducer"
 import Preloader from '../Common/Preloader/Preloader'
 import FindUsers from './FindUsers'
 
 class FindUsersAPI extends React.Component {
     componentDidMount() {
-       this.props.getUsersThunkCreator()
+       this.props.getUsersThunkCreator(this.props.currentPage,this.props.pageSize)
     }
     onPageChanged = (pageNumber) => {
-        this.props.setPreloader(true)
-        this.props.setCurrentPage(pageNumber)
-        usersApi.getUsers(pageNumber,this.props.pageSize)
-            .then(data => {
-                this.props.setPreloader(false)
-                this.props.setUsers(data.items)
-            })
+        this.props.getUsersThunkCreator(pageNumber,this.props.pageSize)
     }
     render() {
         return <>
@@ -24,7 +17,8 @@ class FindUsersAPI extends React.Component {
             <FindUsers totalCount={this.props.totalCount}
                 pageSize={this.props.pageSize} currentPage={this.props.currentPage}
                 users={this.props.users} unfollow={this.props.unfollow}
-                follow={this.props.follow} onPageChanged={this.onPageChanged} />
+                follow={this.props.follow} onPageChanged={this.onPageChanged}
+                unfollowThunkCreator={this.props.unfollowThunkCreator} />
         </>
     }
 }
@@ -38,7 +32,7 @@ let mapStateToProps = (state) => {
     }
 }
 const FindUsersContainer = connect(mapStateToProps, {
-    follow, unfollow, setUsers, setCurrentPage,
-    setTotalCount, setPreloader,getUsersThunkCreator
+    follow, unfollow,  setCurrentPage,
+    getUsersThunkCreator,unfollowThunkCreator
 })(FindUsersAPI)
 export default FindUsersContainer

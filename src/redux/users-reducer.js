@@ -1,3 +1,4 @@
+import { followingApi } from "../api/followingApi"
 import { usersApi } from "../api/getUsersApi"
 
 const FOLLOW = "FOLLOW"
@@ -66,6 +67,15 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
         dispatch(setPreloader(false))
         dispatch(setUsers(data.items))
         dispatch(setTotalCount(data.totalCount))
+      })
+  }
+}
+export const unfollowThunkCreator = (userId) => {
+  return (dispatch) => {
+    followingApi.setUnfollow(userId)
+      .then(respons => {
+        if (respons.data.resultCode == 0)
+         { dispatch(unfollow(userId)) }
       })
   }
 }

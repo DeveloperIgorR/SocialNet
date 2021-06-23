@@ -27,11 +27,7 @@ const FindUsers = (props) => {
           <div>
             {u.followed
               ? <button onClick={() => {
-                followingApi.setUnfollow(u.id)
-                .then(respons => {
-                  if(respons.data.resultCode == 0)
-                   {props.unfollow(u.id)}
-                })
+                props.unfollowThunkCreator(u.id)
                   }}>Отписаться</button>
               : <button onClick={() => { 
                 followingApi.setFollow(u.id)

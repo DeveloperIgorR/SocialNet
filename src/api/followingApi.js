@@ -5,19 +5,13 @@ const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/'
 })
 export const followingApi = {
-    setFollow(id) {
-        return instance.post(`follow/${id}`,{},)
-        .then(respons => {
-           if(respons.data.resultCode == 0)
-           {follow(id)}
-        })
+    setFollow(userId) {
+        return instance.post(`follow/${userId}`,{},)
+       
     },
-    setUnfollow(id){
-        return  instance.delete(`follow/${id}`)
-        .then(respons => {
-          if(respons.data.resultCode == 0)
-           {unfollow(id)}
-        })
+    setUnfollow(userId){
+        return  instance.delete(`follow/${userId}`)
+        
     }
 
 }

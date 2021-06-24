@@ -13,12 +13,9 @@ export const usersApi = {
     },
     userAuth() {
         return instance.get(`auth/me`)
-            .then(respons => {
-                if(respons.data.resultCode===0){
-                    let{id,email,login}=respons.data.data
-                    this.props.setAuthData(id,email,login)
-                }
-            })
+    },
+    getProfile(userId){
+        return instance.get(`profile/`+userId)
     }
 
 }

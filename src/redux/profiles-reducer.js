@@ -1,3 +1,5 @@
+import { usersApi } from "../api/getUsersApi"
+
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const SET_USER_PROFILE = "SET_USER_PROFILE"
@@ -24,10 +26,10 @@ const profilesReducer = (state = initialState, action) => {
         newPostText: action.newText
       }
     case SET_USER_PROFILE:
-        return {
-          ...state,
-          profile: action.profile
-        }  
+      return {
+        ...state,
+        profile: action.profile
+      }
     default:
       return state
   }
@@ -35,4 +37,9 @@ const profilesReducer = (state = initialState, action) => {
 export default profilesReducer
 export const actionAddPost = () => ({ type: ADD_POST })
 export const actionUpdateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
-export const setUserProfile = (profile) => ({ type:SET_USER_PROFILE, profile })
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+export const getProfileThunkCreator = (userId) => (dispatch) => {
+  usersApi.getProfile(userId).then(respons => {
+    dispatch(setUserProfile(respons.data))
+  })
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { follow, getUsersThunkCreator, unfollowThunkCreator, setCurrentPage,unfollow } from "../../redux/users-reducer"
+import { follow, getUsersThunkCreator, unfollowThunkCreator,followThunkCreator, setCurrentPage,unfollow } from "../../redux/users-reducer"
 import Preloader from '../Common/Preloader/Preloader'
 import FindUsers from './FindUsers'
 
@@ -18,7 +18,8 @@ class FindUsersAPI extends React.Component {
                 pageSize={this.props.pageSize} currentPage={this.props.currentPage}
                 users={this.props.users} unfollow={this.props.unfollow}
                 follow={this.props.follow} onPageChanged={this.onPageChanged}
-                unfollowThunkCreator={this.props.unfollowThunkCreator} />
+                unfollowThunkCreator={this.props.unfollowThunkCreator}
+                followThunkCreator={this.props.followThunkCreator} />
         </>
     }
 }
@@ -33,6 +34,6 @@ let mapStateToProps = (state) => {
 }
 const FindUsersContainer = connect(mapStateToProps, {
     follow, unfollow,  setCurrentPage,
-    getUsersThunkCreator,unfollowThunkCreator
+    getUsersThunkCreator,unfollowThunkCreator,followThunkCreator
 })(FindUsersAPI)
 export default FindUsersContainer

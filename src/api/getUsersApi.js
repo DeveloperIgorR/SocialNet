@@ -10,5 +10,16 @@ export const usersApi = {
             .then(respons => {
                 return respons.data
             })
+    },
+    userAuth() {
+        return instance.get(`auth/me`)
+            .then(respons => {
+                if(respons.data.resultCode===0){
+                    let{id,email,login}=respons.data.data
+                    this.props.setAuthData(id,email,login)
+                }
+            })
     }
+
 }
+

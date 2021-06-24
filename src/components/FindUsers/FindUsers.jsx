@@ -30,11 +30,7 @@ const FindUsers = (props) => {
                 props.unfollowThunkCreator(u.id)
                   }}>Отписаться</button>
               : <button onClick={() => { 
-                followingApi.setFollow(u.id)
-                .then(respons => {
-                   if(respons.data.resultCode == 0)
-                   {props.follow(u.id)}
-                })
+                props.followThunkCreator(u.id)
                  }}>Подписаться</button>
             }
           </div>

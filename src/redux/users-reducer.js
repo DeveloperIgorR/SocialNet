@@ -79,3 +79,12 @@ export const unfollowThunkCreator = (userId) => {
       })
   }
 }
+export const followThunkCreator = (userId) => {
+  return (dispatch) => {
+    followingApi.setFollow(userId)
+    .then(respons => {
+       if(respons.data.resultCode == 0)
+       {dispatch(follow(userId))}
+    })
+  }
+}

@@ -9,6 +9,7 @@ import Friends from "./components/Friends/Friends";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import FindUsersContainer from "./components/FindUsers/FindUsersContainer";
 import ProfilesContainer from "./components/Profiles/ProfilesContainer";
+import Login from "./components/Login/Login";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/Settings" render={() => <Settings />} />
           <Route path="/FindUsers" render={() => <FindUsersContainer/>} />
           <Route path="/Friends" render={() => <Friends />} />
+          <Route path="/Login" render={() =><Login/>} />
           </div>
       </div>
     </BrowserRouter>

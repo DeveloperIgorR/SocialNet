@@ -1,6 +1,7 @@
 import Messages from "./Messages"
 import { actionSendMessage, actionUpdateNewMessageText } from "../../redux/messages-reducer"
 import { connect } from "react-redux"
+
 let mapDispatchToProps = (dispatch) => {
     return {
         MessageChange: (message) => {
@@ -13,7 +14,8 @@ let mapDispatchToProps = (dispatch) => {
 }
 let mapStateToProps = (state) => {
     return {
-        messagesPage: state.messagesPage
+        messagesPage: state.messagesPage,
+        isAuth:state.auth.isAuth
     }
 }
 

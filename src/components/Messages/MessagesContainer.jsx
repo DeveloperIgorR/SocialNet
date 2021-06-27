@@ -1,6 +1,7 @@
 import Messages from "./Messages"
 import { actionSendMessage, actionUpdateNewMessageText } from "../../redux/messages-reducer"
 import { connect } from "react-redux"
+import { ContainerRedirectAuthMe } from "../../Hoc/AuthMe"
 
 let mapDispatchToProps = (dispatch) => {
     return {
@@ -15,9 +16,8 @@ let mapDispatchToProps = (dispatch) => {
 let mapStateToProps = (state) => {
     return {
         messagesPage: state.messagesPage,
-        isAuth:state.auth.isAuth
     }
 }
-
-const MessagesContainer = connect(mapStateToProps,mapDispatchToProps)(Messages)
+let AuthRedirectComponent = ContainerRedirectAuthMe(Messages)
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
 export default MessagesContainer

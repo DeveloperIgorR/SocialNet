@@ -1,6 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom"
-
+let mapStateToPropsRedirect = (state)=>({
+    isAuth:state.auth.isAuth
+})
 export const ContainerRedirectAuthMe = (Component)=>{
     class RedirectComponent extends React.Component{
      render(){
@@ -8,5 +11,6 @@ export const ContainerRedirectAuthMe = (Component)=>{
         return <Component{...this.props}/>
      }
     }
-    return RedirectComponent
+    const ConnectedContainerRedirectAuthMe = connect(mapStateToPropsRedirect)(RedirectComponent)
+    return ConnectedContainerRedirectAuthMe
 }

@@ -22,7 +22,6 @@ class ProfilesContainer extends React.Component {
 let AuthRedirectComponent = ContainerRedirectAuthMe(ProfilesContainer)
 let mapStateToProps = (state) => ({
     profile: state.profilesPage.profile,
-    isAuth: state.auth.isAuth
 });
 let WithUrlDataContainer = withRouter(AuthRedirectComponent);
 export default connect(mapStateToProps, { getProfileThunkCreator })(WithUrlDataContainer);

@@ -1,15 +1,17 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { follow, getUsersThunkCreator, unfollowThunkCreator,followThunkCreator, setCurrentPage,unfollow } from "../../redux/users-reducer"
+import { compose } from 'redux'
+import { ContainerRedirectAuthMe } from '../../Hoc/AuthMe'
+import { follow, getUsersThunkCreator, unfollowThunkCreator, followThunkCreator, setCurrentPage, unfollow } from "../../redux/users-reducer"
 import Preloader from '../Common/Preloader/Preloader'
 import FindUsers from './FindUsers'
 
 class FindUsersAPI extends React.Component {
     componentDidMount() {
-       this.props.getUsersThunkCreator(this.props.currentPage,this.props.pageSize)
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
     }
     onPageChanged = (pageNumber) => {
-        this.props.getUsersThunkCreator(pageNumber,this.props.pageSize)
+        this.props.getUsersThunkCreator(pageNumber, this.props.pageSize)
     }
     render() {
         return <>
@@ -32,8 +34,10 @@ let mapStateToProps = (state) => {
         isFetching: state.findUsersPage.isFetching,
     }
 }
-const FindUsersContainer = connect(mapStateToProps, {
-    follow, unfollow,  setCurrentPage,
-    getUsersThunkCreator,unfollowThunkCreator,followThunkCreator
-})(FindUsersAPI)
-export default FindUsersContainer
+export default compose(
+    connect(mapStateToProps, {
+        follow, unfollow, setCurrentPage,
+        getUsersThunkCreator, unfollowThunkCreator, followThunkCreator
+    }),
+    ContainerRedirectAuthMe
+)(FindUsersAPI)

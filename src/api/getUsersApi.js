@@ -16,7 +16,11 @@ export const usersApi = {
     },
     getProfile(userId){
         return instance.get(`profile/`+userId)
-    }
+    },
+    getStatus(userId){
+        return instance.get(`status/${userId}`)
+    },
+
 
 }
 

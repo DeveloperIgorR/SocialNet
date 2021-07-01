@@ -2,18 +2,27 @@ import React from 'react'
 import s from "./ProfileInfo.module.css"
 class DiscriptionStatus extends React.Component  {
     state = {
-        editMode:false
+        editMode:false,
+        status:this.props.status
     }
-    activateEdit= ()=>(
+    activateEdit= ()=>{
       this.setState({
         editMode:true
       })
-    )
-    deactivateEdit= ()=>(
+    }
+
+    deactivateEdit= ()=>{
       this.setState({
         editMode:false
       })
-    )
+      this.props.updateStatusThunkCreator(this.state.status)
+    }
+    statusChange = (e)=>{
+      this.setState({
+        status:e.currentTarget.value
+      })
+    }
+
     render(){
     return (
         <div className={s.discription} >
@@ -24,7 +33,8 @@ class DiscriptionStatus extends React.Component  {
            },
            {this.state.editMode &&
            <div>
-              <input autoFocus={true} onBlur={this.deactivateEdit}  value={this.props.status}/>
+              <input onChange={this.statusChange}  autoFocus={true} 
+              onBlur={this.deactivateEdit}  value={this.state.status}/>
            </div>
            }
         </div>

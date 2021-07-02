@@ -9,7 +9,7 @@ import { compose } from 'redux'
 class ProfilesContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId
-        if (!userId) { userId = 17613 }
+        if (!userId) { userId = 2 }
         this.props.getProfileThunkCreator(userId)
         this.props.getStatusThunkCreator(userId)
     };

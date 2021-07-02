@@ -34,7 +34,7 @@ class DiscriptionStatus extends React.Component  {
         <div className={s.discription} >
            {!this.state.editMode &&
            <div >
-              <span onClick={this.activateEdit}>{this.props.status}</span>
+              <span onClick={this.activateEdit}>{this.props.status || "----"}</span>
            </div>
            },
            {this.state.editMode &&
